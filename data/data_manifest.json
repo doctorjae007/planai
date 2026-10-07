@@ -1,0 +1,14 @@
+{
+  "project":"KruPlan AI",
+  "version":"0.2.0",
+  "files":[
+    {"path":"courses.json","status":"verified_from_supplied_pdf"},
+    {"path":"standards.json","status":"awaiting_official_pdf"},
+    {"path":"indicators.json","status":"awaiting_official_pdf"},
+    {"path":"course_units.json","status":"awaiting_school_documents"},
+    {"path":"curriculum_contents.json","status":"transcribed_from_supplied_image"},
+    {"path":"teaching_models.json","status":"starter_data"},
+    {"path":"pa_criteria.json","status":"provisional"},
+    {"path":"one_page_plan.schema.json","status":"starter_schema"}
+  ]
+}

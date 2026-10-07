@@ -1,0 +1,308 @@
+@import "tailwindcss";
+
+@font-face {
+  font-family: "TH Sarabun New";
+  src: local("TH Sarabun New"), local("THSarabunNew");
+  font-style: normal;
+  font-weight: 100 900;
+  font-display: swap;
+}
+
+@theme {
+  --font-sans: "Noto Sans Thai", "Leelawadee UI", Tahoma, sans-serif;
+}
+
+@layer base {
+  * { box-sizing: border-box; }
+  body { margin: 0; min-width: 320px; background: #eefaf6; font-family: var(--font-sans); -webkit-font-smoothing: antialiased; }
+  button, select, input { font: inherit; }
+  button { cursor: pointer; }
+}
+
+@layer components {
+  .app-sidebar { background: #eee8e1; color: #161619; border-right: 1px solid rgba(24, 24, 27, 0.06); }
+  .sidebar-logo { background: #17171a; color: white; }
+  .sidebar-brand-copy span { color: #de8693; }
+  .sidebar-brand-copy p { color: #7b7774; }
+  .sidebar-nav-item { @apply relative flex w-full items-center gap-3 rounded-full px-3.5 py-3 text-left text-[15px] font-medium text-slate-600 transition hover:bg-white hover:text-black; }
+  .sidebar-nav-item.is-active { @apply bg-[#17171a] font-semibold text-white shadow-sm; }
+  .sidebar-badge { @apply ml-auto rounded-full bg-[#ef9fa9] px-2 py-0.5 text-xs font-bold text-[#17171a]; }
+  .sidebar-tools { border-color: rgba(24, 24, 27, 0.08); }
+  .sidebar-profile { background: rgba(255, 255, 255, 0.58); }
+  .card { @apply rounded-[22px] border border-black/6 bg-[#fffdfb] shadow-[0_10px_30px_rgba(46,39,35,0.035)]; }
+  .eyebrow { @apply text-xs font-bold uppercase tracking-[0.14em] text-slate-500; }
+  .section-title { @apply text-lg font-bold text-slate-800; }
+  .btn-primary { @apply inline-flex items-center justify-center gap-2 rounded-xl bg-[#1b1d20] px-4 py-3 text-sm font-bold text-white shadow-sm transition hover:bg-black disabled:cursor-wait disabled:opacity-60; }
+  .btn-secondary { @apply inline-flex items-center justify-center rounded-xl border border-slate-200 bg-white px-4 py-3 text-sm font-semibold text-slate-600 transition hover:bg-slate-50; }
+  .icon-btn { @apply grid size-10 place-items-center rounded-xl text-slate-500 transition hover:bg-slate-100; }
+  .field-label { @apply text-sm font-semibold text-slate-700; }
+  .field { @apply w-full rounded-xl border border-slate-200 bg-white px-3.5 py-3 text-slate-700 outline-none transition focus:border-slate-500 focus:ring-2 focus:ring-slate-500/10; }
+  .status { @apply inline-flex whitespace-nowrap rounded-full px-2.5 py-1 text-xs font-semibold; }
+  .status-amber { @apply bg-[#fae1b9] text-[#6f4912]; }
+  .status-green { @apply bg-[#bdebd9] text-[#185f49]; }
+  .status-blue { @apply bg-[#d5d2fb] text-[#454194]; }
+  .info-cell { @apply flex items-center justify-between gap-3 border-b border-slate-100 px-6 py-4 last:border-b-0 sm:block sm:border-b-0 sm:border-r; }
+  .info-cell span { @apply text-xs text-slate-400; }
+  .info-cell strong { @apply block text-sm text-slate-700 sm:mt-1; }
+  .plan-heading { @apply flex items-center gap-3 text-lg font-bold text-slate-800; }
+  .plan-heading > span { @apply grid size-8 shrink-0 place-items-center rounded-lg bg-[#1b1d20] text-sm text-white; }
+  .plan-textarea { @apply mt-3 min-h-24 w-full resize-y rounded-xl border border-slate-200 bg-[#fbfbfa] p-4 text-sm leading-7 text-slate-700 outline-none transition focus:border-slate-500 focus:ring-2 focus:ring-slate-500/10; }
+  .objective-card { @apply rounded-xl border border-slate-200 bg-[#f7f7f5] p-4 text-sm text-slate-700; }
+  .objective-card strong { @apply mb-3 block text-[#1b1d20]; }
+  .objective-card label > span { @apply grid size-7 shrink-0 place-items-center rounded-lg bg-white text-xs font-bold text-[#1b1d20] shadow-sm; }
+  .objective-card input { @apply w-full bg-transparent py-1 outline-none; }
+  .check-card { @apply flex cursor-pointer items-center gap-3 rounded-xl border border-slate-200 p-4 text-sm font-semibold text-slate-700 transition hover:border-slate-400; }
+  .check-card input { @apply size-4 accent-[#1b1d20]; }
+  .approval-card { @apply rounded-2xl border border-slate-200 bg-slate-50 p-5; }
+  .approval-card h3 { @apply font-bold text-slate-800; }
+  .approval-card textarea { @apply mt-4 min-h-24 w-full resize-y rounded-xl border border-slate-200 bg-white p-3 text-sm outline-none focus:border-[#2b786b]; }
+  .approval-card p { @apply mt-5 text-sm text-slate-500; }
+  .approval-card input { @apply mt-3 w-full border-b border-slate-300 bg-transparent py-2 text-sm outline-none; }
+  .lesson-board { @apply rounded-[28px] bg-[#f0eeeb] p-3 shadow-[0_16px_45px_rgba(46,39,35,0.06)]; }
+  .lesson-board-hero { @apply rounded-[22px] border border-black/5 bg-[#fffdfb] px-6 py-8 sm:px-8; }
+  .editable-plan-title { @apply mt-2 w-full border-0 bg-transparent text-2xl font-bold text-[#181a1d] outline-none transition focus:rounded-lg focus:bg-[#f5f2ed] focus:px-2; }
+  .editable-plan-unit { @apply mt-2 w-full border-0 bg-transparent text-sm text-slate-500 outline-none transition focus:rounded-lg focus:bg-[#f5f2ed] focus:px-2 focus:py-1; }
+  .editable-duration { @apply flex min-w-40 flex-col rounded-xl bg-[#17171a] px-4 py-2 text-white; }
+  .editable-duration span { @apply text-[10px] font-semibold text-white/55; }
+  .editable-duration input { @apply mt-0.5 w-full border-0 bg-transparent text-sm font-bold text-white outline-none; }
+  .lesson-meta-grid { @apply mt-3 grid overflow-hidden rounded-[22px] border border-black/5 bg-[#fffdfb] sm:grid-cols-2 lg:grid-cols-4; }
+  .lesson-meta-grid > div { @apply border-b border-slate-100 px-5 py-4 last:border-0 sm:border-r lg:border-b-0; }
+  .lesson-meta-grid p { @apply text-xs text-slate-400; }
+  .lesson-meta-grid strong { @apply mt-1 block text-sm text-slate-700; }
+  .editable-meta-input { @apply mt-1 w-full border-0 bg-transparent text-sm font-bold text-slate-700 outline-none transition focus:rounded-md focus:bg-[#f5f2ed] focus:px-1; }
+  .teaching-model-select { width: 100%; appearance: none; border: 0; background: transparent; padding-right: 22px; font-size: 13px; font-weight: 700; color: #334155; outline: none; }
+  .teaching-model-summary { @apply mt-3 grid gap-4 rounded-[22px] border border-black/5 bg-[#fffdfb] p-5 lg:grid-cols-[.72fr_1.28fr]; }
+  .teaching-model-summary > div > span { @apply text-xs font-bold uppercase tracking-[.12em] text-[#58a98b]; }
+  .teaching-model-summary > div > strong { @apply mt-1 block text-base text-slate-800; }
+  .teaching-model-summary > div > p { @apply mt-1 text-sm leading-6 text-slate-500; }
+  .teaching-model-summary ol { @apply flex flex-wrap content-start gap-2; }
+  .teaching-model-summary li { @apply flex items-center gap-2 rounded-full border border-black/6 bg-[#eefaf6] px-3 py-2 text-xs font-semibold text-slate-600; }
+  .teaching-model-summary li b { @apply grid size-5 place-items-center rounded-full bg-[#17171a] text-[10px] text-white; }
+  .lesson-card-grid { @apply mt-3 grid gap-3 lg:grid-cols-2; }
+  .lesson-card-grid > section { @apply rounded-[18px] border-2 border-[#666] bg-white p-6 shadow-[0_8px_24px_rgba(46,39,35,0.025)] sm:p-7; }
+  .lesson-card-grid > section:nth-child(4n+1) .plan-heading > span { background: #7bd14d; color: #25321d; }
+  .lesson-card-grid > section:nth-child(4n+2) .plan-heading > span { background: #2eb5e8; color: white; }
+  .lesson-card-grid > section:nth-child(4n+3) .plan-heading > span { background: #ee58b5; color: white; }
+  .lesson-card-grid > section:nth-child(4n) .plan-heading > span { background: #f05c58; color: white; }
+  .lesson-card-grid > section:nth-child(1),
+  .lesson-card-grid > section:nth-child(6),
+  .lesson-card-grid > section:nth-child(8),
+  .lesson-card-grid > section:nth-child(10) { @apply lg:col-span-2; }
+  .lesson-card-grid > section:nth-child(10) { @apply pt-7; background: white; }
+  .lesson-card-grid .field,
+  .lesson-card-grid .plan-textarea,
+  .lesson-card-grid .objective-card,
+  .lesson-card-grid .check-card,
+  .lesson-card-grid .approval-card { background: rgba(255,255,255,0.68); border-color: rgba(24,24,27,0.10); }
+  .editable-table td { padding: 8px; vertical-align: top; }
+  .editable-table input, .editable-table textarea { width: 100%; border: 1px solid transparent; border-radius: 8px; background: transparent; padding: 7px; color: #475569; outline: none; transition: .15s ease; }
+  .editable-table textarea { min-height: 70px; resize: vertical; line-height: 1.55; }
+  .editable-table input:focus, .editable-table textarea:focus { border-color: #94a3b8; background: white; box-shadow: 0 0 0 3px rgba(148,163,184,.12); }
+  .plan-export-sheet { width: 794px; min-height: 1123px; overflow: hidden; background: #f2ece6; color: #17171a; font-family: "TH Sarabun New", "THSarabunNew", "Noto Sans Thai", "Leelawadee UI", Tahoma, sans-serif; font-size: 14pt; }
+  .export-hero { @apply flex items-start justify-between border-b border-black/8 bg-[#fffdfb] px-12 pb-9 pt-11 text-[#17171a]; }
+  .export-hero p { @apply text-[11px] font-bold tracking-[0.18em] text-slate-400; }
+  .export-hero h2 { @apply mt-3 text-[32px] font-bold leading-tight; }
+  .export-hero > div:first-child > span { @apply mt-2 block text-sm text-slate-500; }
+  .export-number { @apply ml-6 flex size-20 shrink-0 flex-col items-center justify-center rounded-full border border-black/10 bg-[#17171a] text-white shadow-lg; }
+  .export-number small { @apply text-[10px] font-bold; }
+  .export-number strong { @apply text-3xl leading-none; }
+  .export-meta { @apply grid grid-cols-4 border-b border-black/5 bg-[#fffdfb] px-10 shadow-sm; }
+  .export-meta > div { @apply border-r border-slate-100 px-4 py-4 last:border-r-0; }
+  .export-meta span { @apply block text-[10px] text-slate-400; }
+  .export-meta strong { @apply mt-1 block text-xs text-slate-700; }
+  .export-body { @apply space-y-5 px-12 py-8; }
+  .export-body section { @apply rounded-[22px] border border-black/8 p-5 shadow-[0_6px_18px_rgba(46,39,35,0.03)]; }
+  .export-label { @apply mb-3 text-[10px] font-extrabold tracking-[0.12em] text-[#17171a]/55; }
+  .export-standard { @apply bg-[#bdebd9] border-l-0!; }
+  .export-standard h3 { @apply text-[13px] font-bold leading-5 text-slate-800; }
+  .export-indicators { @apply mt-3 grid grid-cols-2 gap-3; }
+  .export-indicators p { @apply rounded-xl border border-black/5 bg-white/60 p-3 text-[10px] leading-4 text-slate-600; }
+  .export-indicators b { @apply mr-1 text-[#1b1d20]; }
+  .export-grid { @apply grid grid-cols-2 gap-5; }
+  .export-grid section:first-child { background: #f3c1c3; }
+  .export-grid section:last-child { background: #f9ddb2; }
+  .export-grid section > p, .export-grid li { @apply text-[11px] leading-[1.65] text-slate-700; }
+  .export-grid ul { @apply space-y-1.5; }
+  .export-grid li b { @apply mr-2 inline-grid size-5 place-items-center rounded-md bg-[#1b1d20] text-[10px] text-white; }
+  .export-flow { @apply grid grid-cols-3 gap-3; }
+  .export-body > section:not(.export-standard) { background: #cfccfa; }
+  .export-flow > div { @apply rounded-xl border border-black/6 bg-white/55 p-3; }
+  .export-flow > div:nth-child(1) { @apply border-t-4 border-[#ea8692]; }
+  .export-flow > div:nth-child(2) { @apply border-t-4 border-[#d8a54d]; }
+  .export-flow > div:nth-child(3) { @apply border-t-4 border-[#61b89a]; }
+  .export-flow span { @apply text-[10px] font-black text-slate-400; }
+  .export-flow h4 { @apply mt-1 text-xs font-bold text-[#1b1d20]; }
+  .export-flow p { @apply mt-1 text-[10px] leading-4 text-slate-500; }
+  .export-bottom-grid section { @apply min-h-24; }
+  .export-bottom-grid section:first-child { background: #bdebd9; }
+  .export-bottom-grid section:last-child { background: #f3c1c3; }
+  .export-footer { @apply mt-auto flex items-center justify-between border-t border-black/5 bg-[#fffdfb] px-12 py-6; }
+  .export-footer strong, .export-footer span, .export-footer small { @apply block; }
+  .export-footer > div:first-child strong { @apply text-sm text-[#1b1d20]; }
+  .export-footer > div:first-child span { @apply mt-1 text-[10px] text-slate-400; }
+  .export-sign { @apply text-right; }
+  .export-sign span, .export-sign small { @apply text-[9px] text-slate-400; }
+  .export-sign strong { @apply my-1 text-xs text-slate-700; }
+  .plan-export-document { width: 794px; display: flex; flex-direction: column; gap: 24px; background: #ddd8e8; font-family: "TH Sarabun New", "THSarabunNew", "Noto Sans Thai", "Leelawadee UI", Tahoma, sans-serif; font-size: 14pt; }
+  .plan-export-page { position: relative; width: 794px; height: 1123px; min-height: 1123px; max-height: 1123px; overflow: hidden; background: #f5f4f8; padding: 38px 46px 72px; color: #202126; }
+  .plan-export-page::before { content: ""; position: absolute; width: 220px; height: 220px; right: -105px; top: -95px; border-radius: 50%; background: #e4daf2; opacity: .72; }
+  .plan-export-page::after { content: "✦"; position: absolute; right: 27px; top: 146px; color: #fff; font-size: 36px; line-height: 1; opacity: .9; }
+  .lesson-print-header { position: relative; z-index: 1; display: grid; grid-template-columns: 108px 1fr 68px; align-items: center; gap: 18px; margin-bottom: 16px; }
+  .print-page-label { position: absolute; right: 0; bottom: -9px; font-size: 10pt; font-weight: 800; color: #817c88; }
+  .lesson-print-header > div:nth-child(2) { text-align: center; }
+  .lesson-print-header > div:nth-child(2) > p { font-size: 10px; font-weight: 900; letter-spacing: .19em; color: #7d68a5; }
+  .lesson-print-header h2 { margin-top: 3px; font-size: 29px; line-height: 1.15; font-weight: 900; color: #202126; }
+  .lesson-print-header h2 span { font-size: 20px; font-weight: 600; }
+  .lesson-print-header-small h2 { font-size: 23px; }
+  .print-subject-mark { width: 100px; height: 72px; display: flex; flex-direction: column; align-items: center; justify-content: center; border-radius: 24px; background: #d3e8e5; border: 1px solid rgba(32,33,38,.07); color: #242424; box-shadow: 0 7px 0 #fff; transform: rotate(-2deg); }
+  .print-subject-mark > span:last-child { margin-top: 1px; font-size: 8px; font-weight: 900; letter-spacing: .03em; }
+  .print-subject-mark .print-subject-emoji { font-family: "Segoe UI Emoji", "Apple Color Emoji", sans-serif; font-size: 27px; line-height: 1; }
+  .print-plan-number { width: 64px; height: 64px; display: flex; flex-direction: column; align-items: center; justify-content: center; border-radius: 50%; background: #202126; color: white; box-shadow: 7px -5px 0 #ffe198; }
+  .print-plan-number small { font-size: 8px; font-weight: 700; }
+  .print-plan-number strong { font-size: 22px; line-height: 1; }
+  .print-meta-rows { position: relative; z-index: 1; display: grid; grid-template-columns: 1.1fr .9fr; gap: 8px; margin-bottom: 12px; }
+  .print-meta-rows > div { min-height: 48px; display: flex; align-items: center; gap: 10px; border: 1px solid rgba(255,255,255,.9); border-radius: 16px; background: #fff; padding: 8px 13px; font-size: 10px; box-shadow: 0 7px 18px rgba(58,47,76,.045); }
+  .print-meta-rows > div:nth-child(1) { background: #d3e8e5; }
+  .print-meta-rows > div:nth-child(2) { background: #ffe39a; }
+  .print-meta-rows > div:nth-child(3) { background: #ddd0ee; }
+  .print-meta-rows > div:nth-child(4) { background: #ced8ed; }
+  .print-meta-rows > div span { color: #66616b; font-weight: 700; }
+  .print-meta-rows > div strong { color: #202126; font-size: 11px; }
+  .print-meta-rows > div strong:last-child { margin-left: auto; }
+  .print-two-columns { position: relative; z-index: 1; display: grid; grid-template-columns: .94fr 1.06fr; gap: 11px; align-items: start; }
+  .print-column { display: grid; gap: 9px; }
+  .print-section { position: relative; border: 1px solid rgba(255,255,255,.86); border-radius: 20px; padding: 14px 14px 12px; background: white; box-shadow: 0 8px 20px rgba(58,47,76,.05); }
+  .print-section h3 { position: relative; display: flex; align-items: center; gap: 8px; min-width: 0; margin: 0 0 8px; padding: 0; background: transparent; font-size: 14px; line-height: 1.35; font-weight: 900; color: #25242a; }
+  .print-section h3 i { position: relative; left: auto; top: auto; display: inline-block; width: 25px; height: 25px; flex: 0 0 25px; border-radius: 50%; background: #202126; transform: none; opacity: 1; }
+  .print-section h3 i::after { content: "✦"; position: absolute; width: auto; height: auto; left: 7px; top: 4px; border: 0; background: transparent; color: #fff; font-size: 10px; }
+  .print-green { background: #d5e9e6; }
+  .print-blue { background: #ced9ed; }
+  .print-pink { background: #ead5e7; }
+  .print-red { background: #f3d6d5; }
+  .print-lime { background: #dceac9; }
+  .print-purple { background: #ddd0ee; }
+  .print-orange { background: #ffe2a0; }
+  .print-section h4 { margin: 7px 0 3px; font-size: 10px; font-weight: 900; color: #3b3940; }
+  .print-section p, .print-section li { font-size: 9.5px; line-height: 1.58; color: #55515a; }
+  .print-section ul { margin: 3px 0 0; padding-left: 17px; }
+  .print-main-activity { min-height: 580px; background: #ddd0ee; }
+  .print-activity { margin-top: 6px; padding: 9px 10px; border: 1px solid rgba(255,255,255,.74); border-radius: 14px; background: rgba(255,255,255,.54); }
+  .print-activity:last-child { border-bottom: 0; }
+  .print-activity > div { display: flex; align-items: center; justify-content: space-between; gap: 10px; }
+  .print-activity strong { font-size: 11px; color: #333; }
+  .print-activity span { border-radius: 999px; background: #fff; padding: 3px 8px; font-size: 8px; font-weight: 800; color: #67577b; }
+  .lesson-print-footer { position: absolute; bottom: 19px; left: 46px; right: 46px; display: flex; justify-content: space-between; border-top: 1px solid rgba(32,33,38,.12); padding-top: 7px; font-size: 8px; color: #817c88; }
+  .print-table-section { margin-top: 22px; padding-top: 26px; }
+  .print-detail-grid { display: grid; grid-template-columns: 1.45fr .75fr; gap: 13px; margin-top: 22px; }
+  .print-detail-grid .print-section { min-height: 118px; }
+  .print-table-section table { width: 100%; border-collapse: collapse; table-layout: fixed; }
+  .print-table-section th, .print-table-section td { border: 1px solid rgba(32,33,38,.13); padding: 8px; text-align: left; vertical-align: top; font-size: 9px; line-height: 1.5; }
+  .print-table-section th { background: rgba(255,255,255,.66); font-size: 9px; font-weight: 900; color: #37343d; }
+  .print-table-section th:first-child { width: 22%; }
+  .print-table-section th:last-child { width: 13%; }
+  .print-reflection-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 13px; margin-top: 25px; }
+  .print-reflection-grid .print-section { min-height: 260px; }
+  .writing-lines p, .signature-lines p { min-height: 54px; padding-top: 8px; border-bottom: 1px dotted rgba(71,66,79,.42); }
+  .signature-lines p { min-height: 50px; padding-top: 22px; }
+  .plan-export-page-one { padding: 16px 28px 36px; }
+  .plan-export-page-one .lesson-print-header { grid-template-columns: 82px 1fr 54px; gap: 12px; margin-bottom: 9px; }
+  .plan-export-page-one .lesson-print-header h2 { font-size: 23px; }
+  .plan-export-page-one .lesson-print-header h2 span { font-size: 15px; }
+  .plan-export-page-one .print-subject-mark { width: 76px; height: 54px; border-radius: 18px; box-shadow: 0 5px 0 #fff; }
+  .plan-export-page-one .print-subject-mark .print-subject-emoji { font-size: 21px; }
+  .plan-export-page-one .print-plan-number { width: 50px; height: 50px; box-shadow: 5px -4px 0 #ffe198; }
+  .plan-export-page-one .print-plan-number strong { font-size: 17px; }
+  .plan-export-page-one .print-meta-rows { gap: 6px; margin-bottom: 8px; }
+  .plan-export-page-one .print-meta-rows > div { min-height: 34px; border-radius: 12px; padding: 4px 8px; font-size: 8px; }
+  .plan-export-page-one .print-meta-rows > div strong { font-size: 9px; }
+  .plan-export-page-one .print-two-columns { grid-template-columns: .96fr 1.04fr; gap: 8px; }
+  .plan-export-page-one .print-column { gap: 4px; }
+  .print-page-one-content { position: relative; z-index: 1; display: grid; grid-template-columns: 1fr 1fr; gap: 5px; align-items: start; }
+  .print-page-one-content .print-section-objectives,
+  .print-page-one-content .print-main-activity { grid-column: 1 / -1; }
+  .print-page-one-content .print-section-objectives { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 6px; }
+  .print-page-one-content .print-section-objectives > h3 { grid-column: 1 / -1; }
+  .print-page-one-content .print-section-objectives > div { min-width: 0; }
+  .print-page-one-content .print-main-activity { min-height: 0; display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); grid-auto-rows: max-content; align-content: start; gap: 2px; padding: 3px 5px 5px; overflow: hidden; }
+  .print-page-one-content .print-main-activity > h3 { grid-column: 1 / -1; margin: 0; }
+  .print-page-one-content .print-main-activity .print-activity { margin-top: 0; display: block; min-width: 0; overflow: hidden; padding: 3px 4px; }
+  .print-page-one-content .print-main-activity .print-activity > div { display: flex; }
+  .print-page-one-content .print-main-activity .print-activity strong,
+  .print-page-one-content .print-main-activity .print-activity p { overflow-wrap: anywhere; word-break: break-word; }
+  .print-page-one-content .print-main-activity .print-activity p { margin: 2px 0 0; }
+  .plan-export-page-one .print-section { border-radius: 14px; padding: 6px 9px; box-shadow: 0 5px 12px rgba(58,47,76,.045); }
+  .plan-export-page-one .print-section h3 { gap: 6px; margin-bottom: 4px; font-size: 11px; }
+  .plan-export-page-one .print-section h3 i { width: 18px; height: 18px; flex-basis: 18px; }
+  .plan-export-page-one .print-section h3 i::after { left: 5px; top: 2px; font-size: 8px; }
+  .plan-export-page-one .print-section h4 { margin: 4px 0 1px; font-size: 8px; }
+  .plan-export-page-one .print-section p, .plan-export-page-one .print-section li { font-size: 7.6px; line-height: 1.38; }
+  .plan-export-page-one .print-section ul { margin-top: 1px; padding-left: 14px; }
+  .plan-export-page-one .print-activity { margin-top: 3px; border-radius: 10px; padding: 4px 6px; }
+  .plan-export-page-one .print-activity strong { font-size: 8.5px; }
+  .plan-export-page-one .print-activity span { padding: 2px 6px; font-size: 7px; }
+  .print-compact-assessment { display: grid; gap: 4px; }
+  .print-compact-assessment > div { display: grid; grid-template-columns: 80px 1fr; gap: 5px; border-top: 1px solid rgba(32,33,38,.1); padding-top: 4px; font-size: 7.4px; line-height: 1.35; color: #55515a; }
+  .print-compact-assessment > div:first-child { border-top: 0; padding-top: 0; }
+  .print-compact-assessment strong { color: #333; }
+  .print-compact-notes { min-height: 56px; }
+  .print-compact-signature > div { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+  .plan-export-page-one .lesson-print-footer { bottom: 10px; left: 34px; right: 34px; padding-top: 4px; font-size: 7px; }
+  .print-page-two-content { position: relative; z-index: 1; display: grid; gap: 14px; }
+  .print-page-two-content .print-compact-signature > div { gap: 18px; }
+  .print-continuation-heading { position: relative; z-index: 1; display: flex; align-items: baseline; justify-content: space-between; gap: 18px; margin-bottom: 18px; border-bottom: 1px solid rgba(32,33,38,.14); padding-bottom: 10px; }
+  .print-continuation-heading span { font-size: 16pt; font-weight: 900; color: #25242a; }
+  .print-continuation-heading strong { min-width: 0; text-align: right; font-size: 14pt; color: #66616b; }
+  .print-continuation-heading em { font-size: 10pt; font-style: normal; font-weight: 800; color: #817c88; }
+  .print-section, .print-activity, .print-compact-assessment > div { break-inside: avoid; page-break-inside: avoid; }
+
+  /* PNG/print lesson plan: use real typographic points, not CSS pixels. */
+  .plan-export-document .plan-export-page { overflow: hidden; }
+  .plan-export-document .lesson-print-header > div:nth-child(2) > p,
+  .plan-export-document .print-subject-mark > span:last-child,
+  .plan-export-document .print-plan-number small,
+  .plan-export-document .print-meta-rows > div,
+  .plan-export-document .print-meta-rows > div strong,
+  .plan-export-document .print-section h4,
+  .plan-export-document .print-section p,
+  .plan-export-document .print-section li,
+  .plan-export-document .print-activity strong,
+  .plan-export-document .print-activity span,
+  .plan-export-document .print-compact-assessment > div,
+  .plan-export-document .lesson-print-footer { font-size: 14pt; }
+  .plan-export-document .lesson-print-header h2 { font-size: 16pt; }
+  .plan-export-document .lesson-print-header h2 span,
+  .plan-export-document .print-section h3 { font-size: 16pt; }
+  .plan-export-document .print-meta-rows > div { min-height: 48px; }
+  .plan-export-document .print-section p,
+  .plan-export-document .print-section li,
+  .plan-export-document .print-compact-assessment > div { line-height: 1.32; }
+  .plan-export-document .print-section p,
+  .plan-export-document .print-section li { line-height: 1.32; }
+  .plan-export-document .plan-export-page-one .print-section-objectives p,
+  .plan-export-document .plan-export-page-one .print-section-objectives li { line-height: 1.15; }
+  .plan-export-document .plan-export-page-one .print-activity p { line-height: 1.1; }
+  .plan-export-document .print-compact-assessment > div { grid-template-columns: minmax(0, 1fr); gap: 2px; }
+  .plan-export-document .print-activity { padding: 10px 12px; }
+  .plan-export-document .print-activity > div { align-items: flex-start; flex-direction: column; gap: 3px; }
+  .plan-export-document .lesson-print-footer { bottom: 10px; font-size: 10pt; }
+}
+
+@media (min-width: 1024px) {
+  .sidebar-brand { justify-content: center; padding-left: 0; padding-right: 0; }
+  .sidebar-brand-copy, .sidebar-nav-label, .sidebar-profile-copy, .sidebar-profile > svg { display: none; }
+  .sidebar-nav-item { width: 52px; height: 52px; margin-left: auto; margin-right: auto; justify-content: center; padding: 0; }
+  .sidebar-badge { position: absolute; right: -2px; top: -2px; min-width: 20px; text-align: center; padding-left: 5px; padding-right: 5px; }
+  .sidebar-profile { justify-content: center; padding-left: 0; padding-right: 0; background: transparent; }
+}
+
+@media print {
+  @page { size: A4 portrait; margin: 0; }
+  body * { visibility: hidden !important; }
+  .print-export-overlay, .print-export-overlay .plan-export-document, .print-export-overlay .plan-export-document * { visibility: visible !important; }
+  .print-export-overlay { position: absolute !important; inset: 0 !important; overflow: visible !important; padding: 0 !important; background: white !important; }
+  .print-export-overlay > div:first-child { display: none !important; }
+  .print-export-overlay > div:last-child { margin: 0 !important; box-shadow: none !important; }
+  .plan-export-document { width: 210mm !important; gap: 0 !important; background: white !important; }
+  .plan-export-page { width: 210mm !important; height: 297mm !important; min-height: 297mm !important; max-height: 297mm !important; overflow: hidden !important; break-inside: avoid !important; page-break-inside: avoid !important; break-after: page; page-break-after: always; print-color-adjust: exact; -webkit-print-color-adjust: exact; }
+  .plan-export-page:last-child { break-after: auto; page-break-after: auto; }
+}

@@ -1,0 +1,9 @@
+[
+  {"id":"M1-S1","grade":"ม.1","semester":1,"course_code":"ค21101","course_name":"คณิตศาสตร์ 1","course_type":"พื้นฐาน","credits":1.5,"total_hours":60,"suggested_hours_per_week":3,"source":{"document":"โครงสร้างรายวิชา.pdf","page":2},"verification_status":"verified_from_supplied_pdf"},
+  {"id":"M1-S2","grade":"ม.1","semester":2,"course_code":"ค21102","course_name":"คณิตศาสตร์ 2","course_type":"พื้นฐาน","credits":1.5,"total_hours":60,"suggested_hours_per_week":3,"source":{"document":"โครงสร้างรายวิชา.pdf","page":2},"verification_status":"verified_from_supplied_pdf"},
+  {"id":"M2-S1","grade":"ม.2","semester":1,"course_code":"ค22101","course_name":"คณิตศาสตร์ 3","course_type":"พื้นฐาน","credits":1.5,"total_hours":60,"suggested_hours_per_week":3,"source":{"document":"โครงสร้างรายวิชา.pdf","page":3},"verification_status":"verified_from_supplied_pdf"},
+  {"id":"M2-S2","grade":"ม.2","semester":2,"course_code":"ค22102","course_name":"คณิตศาสตร์ 4","course_type":"พื้นฐาน","credits":1.5,"total_hours":60,"suggested_hours_per_week":3,"source":{"document":"โครงสร้างรายวิชา.pdf","page":3},"verification_status":"verified_from_supplied_pdf"},
+  {"id":"M3-S1","grade":"ม.3","semester":1,"course_code":"ค23101","course_name":"คณิตศาสตร์ 5","course_type":"พื้นฐาน","credits":1.5,"total_hours":60,"suggested_hours_per_week":3,"source":{"document":"โครงสร้างรายวิชา.pdf","page":4},"verification_status":"verified_from_supplied_pdf"},
+  {"id":"M3-S2","grade":"ม.3","semester":2,"course_code":"ค23102","course_name":"คณิตศาสตร์ 6","course_type":"พื้นฐาน","credits":1.5,"total_hours":60,"suggested_hours_per_week":3,"source":{"document":"โครงสร้างรายวิชา.pdf","page":4},"verification_status":"verified_from_supplied_pdf"}
+]
+

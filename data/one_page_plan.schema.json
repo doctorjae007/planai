@@ -1,0 +1,20 @@
+{
+  "$schema":"https://json-schema.org/draft/2020-12/schema",
+  "title":"KruPlan One Page Lesson Plan",
+  "type":"object",
+  "required":["plan_info","standards","indicators","objectives","learning_steps","assessment"],
+  "properties":{
+    "plan_info":{"type":"object","properties":{"subject_group":{"type":"string"},"grade":{"type":"string"},"semester":{"type":"integer"},"course_code":{"type":"string"},"unit_number":{"type":"integer"},"unit_name":{"type":"string"},"topic":{"type":"string"},"duration_minutes":{"type":"integer"},"teacher_name":{"type":"string"},"school_name":{"type":"string"}}},
+    "standards":{"type":"array","items":{"type":"string"}},
+    "indicators":{"type":"array","items":{"type":"string"}},
+    "objectives":{"type":"object","properties":{"knowledge":{"type":"array","items":{"type":"string"}},"process":{"type":"array","items":{"type":"string"}},"attitude":{"type":"array","items":{"type":"string"}}}},
+    "concept":{"type":"string"},
+    "competencies":{"type":"array","items":{"type":"string"}},
+    "desirable_attributes":{"type":"array","items":{"type":"string"}},
+    "learning_steps":{"type":"array","items":{"type":"object","properties":{"step":{"type":"integer"},"name":{"type":"string"},"duration_minutes":{"type":"integer"},"teacher_actions":{"type":"array","items":{"type":"string"}},"student_actions":{"type":"array","items":{"type":"string"}},"media":{"type":"array","items":{"type":"string"}},"assessment":{"type":"array","items":{"type":"string"}}}}},
+    "assessment":{"type":"array","items":{"type":"object","properties":{"objective":{"type":"string"},"method":{"type":"string"},"instrument":{"type":"string"},"criterion":{"type":"string"}}}},
+    "media_and_resources":{"type":"array","items":{"type":"string"}},
+    "post_teaching_record":{"type":"object","properties":{"results":{"type":"string"},"problems":{"type":"string"},"solutions":{"type":"string"}}}
+  }
+}
+
