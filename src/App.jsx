@@ -380,8 +380,7 @@ export function LessonPlanWorkspace({ activePlanId, activeSemester, roomId, onSe
       setEditablePlans((current) => ({ ...current, ...remotePlans }))
     }
     hydratePlans().catch(() => {})
-    const subscription = supabase?.auth.onAuthStateChange((_event, session) => session && hydratePlans()).data.subscription
-    return () => { active = false; subscription?.unsubscribe() }
+    return () => { active = false }
   }, [])
   useEffect(() => {
     if (!activeSemester) return
@@ -728,8 +727,7 @@ function WorkspaceApp({ user, profile }) {
       setActiveSemesterId((current) => current || remote[0].id)
     }
     hydrateSemesters().catch(() => {})
-    const subscription = supabase?.auth.onAuthStateChange((_event, session) => session && hydrateSemesters()).data.subscription
-    return () => { active = false; subscription?.unsubscribe() }
+    return () => { active = false }
   }, [])
 
   const navigate = (label) => {

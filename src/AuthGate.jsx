@@ -1,5 +1,6 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { Eye, EyeOff, GraduationCap, LoaderCircle, LockKeyhole, Mail } from 'lucide-react'
+import { shouldHandleAuthTransition } from './lib/authEvents'
 import { isSupabaseConfigured, supabase } from './lib/supabase'
 
 function AuthShell({ children }) {
@@ -43,6 +44,7 @@ export default function AuthGate({ children }) {
   const [showPassword, setShowPassword] = useState(false)
   const [error, setError] = useState('')
   const [notice, setNotice] = useState('')
+  const sessionUserIdRef = useRef(null)
 
   const loadProfile = async (user) => {
     if (!user) {
@@ -67,6 +69,7 @@ export default function AuthGate({ children }) {
     supabase.auth.getSession()
       .then(({ data, error: sessionError }) => {
         if (sessionError) setError(authErrorMessage(sessionError))
+        sessionUserIdRef.current = data.session?.user?.id || null
         setSession(data.session)
         loadProfile(data.session?.user)
       })
@@ -75,9 +78,14 @@ export default function AuthGate({ children }) {
         setLoading(false)
       })
 
-    const { data } = supabase.auth.onAuthStateChange((_event, nextSession) => {
+    const { data } = supabase.auth.onAuthStateChange((event, nextSession) => {
+      const currentUserId = sessionUserIdRef.current
+      const nextUserId = nextSession?.user?.id || null
+      if (!shouldHandleAuthTransition(event, currentUserId, nextUserId)) return
+
+      sessionUserIdRef.current = nextUserId
       setSession(nextSession)
-      setLoading(true)
+      if (currentUserId !== nextUserId) setLoading(true)
       window.setTimeout(() => loadProfile(nextSession?.user), 0)
     })
     return () => data.subscription.unsubscribe()
